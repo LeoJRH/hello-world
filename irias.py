@@ -4,6 +4,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 li = load_iris()
 
+
+# archive_path = r'/home/leo/scikit_learn_data/20news_home/20news-bydate.tar.gz'
+
 # print("Get TZ:")
 # print(li.data)
 # print("Get MB:")
@@ -24,24 +27,24 @@ def naviebayes():
     news = fetch_20newsgroups(subset='all')
 
     #Data split
-    x_train,y_train,x_test,y_test = train_test_split(news.data, news.target,test_size=0.25)
+    x_train,x_test,y_train,y_test = train_test_split(news.data, news.target,test_size=0.25)
 
     # feature extraction
     tf = TfidfVectorizer()
     #Use x_train to make statistics of each arctics 's importance
     x_train = tf.fit_transform(x_train)
     print(tf.get_feature_names())
-    x_test = tf.fit_transform(x_test)
+    x_test = tf.transform(x_test)
     # bATES calculate
 
     mlt = MultinomialNB(alpha=1.0)
     print(x_train)
     mlt.fit(x_train, y_train)
 
-    y_pridict = mlt.predict(x_test)
+    y_predict = mlt.predict(x_test)
     #Score
-    print("Predict kind is", y_pridict)
-    print("The score is ",mlt.score())
+    print("Predict kind is", y_predict)
+    print("The score is ",mlt.score(x_test,y_test))
 
     return None
 
