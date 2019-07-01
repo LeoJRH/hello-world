@@ -4,6 +4,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 li = load_iris()
 
+#包含K近邻算法、贝叶斯算法等实现
+
+
 
 # archive_path = r'/home/leo/scikit_learn_data/20news_home/20news-bydate.tar.gz'
 
