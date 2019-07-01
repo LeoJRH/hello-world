@@ -1,6 +1,9 @@
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.feature_extraction.text import CountVectorizer,TfidfVectorizer
 import jieba
+#帮助理解特征值，分词等用法
+
+
 # vector = CountVectorizer()
 #
 # res = vector.fit_transform(["life is short,i like python","life is too long,i dislike python"])
